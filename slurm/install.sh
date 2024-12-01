@@ -8,7 +8,7 @@ log_info() {
 }
 
 SLURM_VERSION=${SLURM_VERSION:-21.08.8-2}
-WEBSOCKIFY_VERSION=${WEBSOCKIFY_VERSION:-0.11.0}
+WEBSOCKIFY_VERSION=${WEBSOCKIFY_VERSION:-0.12.0}
 ARCHTYPE=`uname -m`
 
 log_info "Installing required packages for building slurm.."
