@@ -8,7 +8,7 @@ log_info() {
 }
 
 SLURM_VERSION=${SLURM_VERSION:-21.08.8-2}
-WEBSOCKIFY_VERSION=${WEBSOCKIFY_VERSION:-0.10.0}
+WEBSOCKIFY_VERSION=${WEBSOCKIFY_VERSION:-0.12.0}
 ARCHTYPE=`uname -m`
 
 log_info "Installing required packages for building slurm.."
@@ -46,6 +46,7 @@ alternatives --set python3 /usr/bin/python3.9
 dnf groupinstall -y "Xfce"
 
 log_info "Compiling python-websockify version ${WEBSOCKIFY_VERSION}.."
+pip3 install numpy==2.2.0rc1 # side step websockify error
 wget -O /tmp/websockify-${WEBSOCKIFY_VERSION}.tar.gz https://github.com/novnc/websockify/archive/refs/tags/v${WEBSOCKIFY_VERSION}.tar.gz
 pushd /tmp
 tar xzf websockify-${WEBSOCKIFY_VERSION}.tar.gz
