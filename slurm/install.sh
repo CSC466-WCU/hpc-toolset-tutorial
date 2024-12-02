@@ -51,7 +51,7 @@ wget -O /tmp/websockify-${WEBSOCKIFY_VERSION}.tar.gz https://github.com/novnc/we
 pushd /tmp
 tar xzf websockify-${WEBSOCKIFY_VERSION}.tar.gz
 pushd websockify-${WEBSOCKIFY_VERSION}
-sed -i "s/'numpy' ,//g" setup.py
+cp /build/websockify_setup.py setup.py
 tail -n 20 setup.py
 python3 setup.py install
 popd
