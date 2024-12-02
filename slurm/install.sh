@@ -52,6 +52,7 @@ pushd /tmp
 tar xzf websockify-${WEBSOCKIFY_VERSION}.tar.gz
 pushd websockify-${WEBSOCKIFY_VERSION}
 sed -i "s/'numpy' ,//g" setup.py
+tail -n 10 setup.py
 python3 setup.py install
 popd
 rm -rf /tmp/websockify*
