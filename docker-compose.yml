@@ -154,30 +154,6 @@ services:
       - ldap
       - slurmctld
 
-  ondemand:
-    image: ubccr/hpcts:ondemand-${HPCTS_VERSION}
-    build:
-      context: ./ondemand
-      args:
-        HPCTS_VERSION: $HPCTS_VERSION
-    command: ["serve"]
-    hostname: ondemand
-    container_name: ondemand
-    networks:
-      - compute
-    volumes:
-      - etc_munge:/etc/munge
-      - etc_slurm:/etc/slurm
-      - home:/home
-    expose:
-      - "22"
-    ports:
-      - "127.0.0.1:3443:3443"
-      - "127.0.0.1:5554:5554"
-    depends_on:
-      - ldap
-      - frontend
-
 volumes:
   etc_xdmod:
   etc_munge:
